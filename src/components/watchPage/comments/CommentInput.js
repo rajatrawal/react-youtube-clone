@@ -21,7 +21,7 @@ const CommentInput = ({ replayStatus, isReply, setReplayStatus, commentHistory }
             commentId: commentId,
             commentStructure: commentHistory
         }
-        console.log(payload);
+
         dispatch(addComment(payload));
     }
 

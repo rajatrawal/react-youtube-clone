@@ -1,70 +1,67 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React YouTube Clone
 
-## Available Scripts
+[![GitHub Repository](https://img.shields.io/badge/GitHub%20Repo-React%20YouTube%20Clone-green)](https://github.com/rajatrawal/react-youtube-clone)
 
-In the project directory, you can run:
+Welcome to the "React YouTube Clone" project, a scalable and feature-rich YouTube clone built with React. This project replicates key functionalities of YouTube, including the home page, side bar, search results page, and video playback with a live chat feature. The application is designed for scalability and uses Redux to manage state, providing a seamless user experience.
 
-### `npm start`
+## Project Highlights
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Home Page**: Mimics the layout of YouTube's home page with recommended videos.
+- **Side Bar**: Includes navigation links for easy access to different sections of the application.
+- **Search Result Page**: Displays search results based on user queries with debouncing to reduce unnecessary API calls.
+- **Watch Page**: Allows users to watch videos, view comments, and participate in live chat.
+- **Live Chat**: Real-time chat functionality integrated into the watch page.
+- **Nested Comments**: Supports nested comments for better organization and engagement.
+- **Scalable Architecture**: Utilizes Redux for efficient state management, making the project highly scalable.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+This project leverages the following technologies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [Redux](https://redux.js.org/): A predictable state container for JavaScript applications.
+- [YouTube API](https://developers.google.com/youtube/v3): Fetches video data and search results from YouTube.
+- [Debouncing](https://lodash.com/docs/4.17.15#debounce): Implemented to optimize live search and reduce API calls.
+- [React Router](https://reactrouter.com/): Handles navigation within the application.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run this project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository to your local machine:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/rajatrawal/react-youtube-clone.git
+   ```
 
-### `npm run eject`
+2. Navigate to the project directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   cd react-youtube-clone
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Install the required dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Start the development server:
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Open your web browser and access the project at [http://localhost:3000/](http://localhost:3000/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+Explore the different sections of the application, including the home page, search results page, and watch page. Interact with the live chat feature and experience the scalable architecture that makes this project a powerful YouTube clone.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Status
 
-### Analyzing the Bundle Size
+The project is currently in development and has not been deployed. It is intended for local testing and development.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to contribute or provide feedback by creating issues or pull requests on [GitHub](https://github.com/rajatrawal/react-youtube-clone).
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

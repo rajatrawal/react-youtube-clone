@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom';
 const SideBar = () => {
   const [showMore, setShowMore] = useState(false);
   const [showSubscribeMore, setShowSubscribeMore] = useState(false);
-  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
+  const isMenuOpen = useSelector(store => store?.app?.isMenuOpen);
+  const videoHistory = useSelector(store => store?.app?.videoHistory);
+
 
   return (
 
     <>
       {isMenuOpen &&
-        < div className='px-3 w-56 overflow-y-scroll  ease-in fixed top-[3.8rem]  bg-white z-10' style={{ height: "91vh", minWidth: "14rem" }}>
+        < div className='px-3 w-56 overflow-y-scroll  ease-in fixed top-[3.8rem]  bg-white z-10' style={{ height: "91vh", minWidth: "16rem" }}>
 
 
           <ul className='mt-3 '>
@@ -157,56 +159,52 @@ const SideBar = () => {
 
           </ul >
           <hr />
-          <ul className='mt-3' >
-            <div className='mb-1 px-4' >
-              <span className='text-base font-bold  ' > Subscriptions</span >
+          {Object.keys(videoHistory).length > 0 &&
+            <>
+              <ul className='mt-3' >
+                <div className='mb-1 px-4' >
+                  <span className='text-base font-bold  ' >Recently Watched</span >
 
-            </div >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
+                </div >
+                {Object.entries(videoHistory)?.map(([key, value]) => (
+                  <Link to={'/watch?v=' + key} key={key}>
+                    <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4 items-center' >
+                      <div className='w-16'>
+                        <img src={videoHistory[key]?.snippet?.thumbnails?.default?.url} alt="" srcset="" />
+                      </div>
+                      <div className='ml-5  font-bold text-xs' >
+                        {videoHistory[key]?.snippet?.localized?.title?.slice(0, 30)}
+                      </div >
+                    </li >
+                  </Link>
+
+                ))}
+              </ul >
+              <hr />
+            </>
+          }
+          <ul className='mt-3' >
+            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4'>
               <div>
                 <i className="fa-solid fa-circle-user"></i>
               </div>
-              <div className='ml-5 text-gray-700' >
+              <div className='ml-5 text-gray-700'>
                 Playlist
               </div >
             </li >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
+            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4'>
               <div>
                 <i className="fa-solid fa-circle-user"></i>
               </div>
-              <div className='ml-5 text-gray-700' >
+              <div className='ml-5 text-gray-700'>
                 Playlist
               </div >
             </li >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
+            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4'>
               <div>
                 <i className="fa-solid fa-circle-user"></i>
               </div>
-              <div className='ml-5 text-gray-700' >
-                Playlist
-              </div >
-            </li >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
-              <div>
-                <i className="fa-solid fa-circle-user"></i>
-              </div>
-              <div className='ml-5 text-gray-700' >
-                Playlist
-              </div >
-            </li >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
-              <div>
-                <i className="fa-solid fa-circle-user"></i>
-              </div>
-              <div className='ml-5 text-gray-700' >
-                Playlist
-              </div >
-            </li >
-            <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4' >
-              <div>
-                <i className="fa-solid fa-circle-user"></i>
-              </div>
-              <div className='ml-5 text-gray-700' >
+              <div className='ml-5 text-gray-700'>
                 Playlist
               </div >
             </li >

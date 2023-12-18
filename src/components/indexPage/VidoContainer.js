@@ -4,6 +4,7 @@ import { YOUTUBE_VIDEO_API } from '../../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { addVideos } from '../../utils/store/slices/appSlice'
 import ShimmerContainer from './ShimmerContainer'
+import { fetchVideoData } from '../helper'
 // import { BoxShadowVideoCard } from './VideoCard'
 const VidoContainer = () => {
     // const [videoData, setVideoData] = useState([]);
@@ -15,15 +16,16 @@ const VidoContainer = () => {
     const [isAtEnd, setIsAtEnd] = useState(1);
     const doneApiList = useRef({});
     const newYoutubeVideoAPI = useRef(YOUTUBE_VIDEO_API);
+
     const getVideosData = async () => {
         setShowShimmer(true);
         doneApiList.current[newYoutubeVideoAPI.current] = true;
-        const data = await fetch(newYoutubeVideoAPI.current);
-        const json = await data.json();
-        dispatch(addVideos(json.items));
+        const json = await fetchVideoData(newYoutubeVideoAPI.current);
+
+        dispatch(addVideos(json));
+
         setShowShimmer(false);
         pageToken.current = json?.nextPageToken;
-        console.log(json.items);
         newYoutubeVideoAPI.current = YOUTUBE_VIDEO_API + (pageToken.current ? `&pageToken=${pageToken.current}` : '');
 
     }
