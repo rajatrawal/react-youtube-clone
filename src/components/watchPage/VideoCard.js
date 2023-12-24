@@ -13,11 +13,19 @@ const VideoCard = ({ videoData }) => {
                     <img src={videoData?.snippet?.thumbnails?.high?.url} alt={title} className=' rounded-lg hover:rounded-none ease-in-out ' />
                 </div>
                 <div className='basis-7/12 px-1.5'>
-                    <div className='font-bold sm:text-sm text-xs'>
+                    <div className='font-bold sm:text-base lg:text-xs md:text-lg'>
                         {title}
                     </div>
-                    <div className='text-gray-600 text-xs mt-1.5'>
-                        {videoData?.snippet?.channelTitle}
+                    <div className='text-gray-600 text-sm mt-1.5'>
+                        <div className='flex items-center '>
+                            <div className='mr-1.5'>
+                                <img className='rounded-full w-4 h-4' srcSet={"https://source.unsplash.com/random/250x250"} alt="userimage" />
+                            </div>
+                            <div>
+
+                                {videoData?.snippet?.channelTitle}
+                            </div>
+                        </div>
                         <div className='mt-1.5'>
                             {Math.round(videoData?.statistics?.viewCount / 1000) + 'K Views'}
                         </div>

@@ -14,7 +14,7 @@ const Description = ({ videoData }) => {
     }, [videoData])
     return (
         <>
-            <div className={'bg-gray-200  rounded-lg p-2 mt-4 text-sm ' + (hideDesc ? 'cursor-pointer hover:bg-gray-300' : '')}>
+            <div className={'bg-gray-200   rounded-lg p-2 mt-7 text-sm ' + (hideDesc ? 'cursor-pointer hover:bg-gray-300' : '')}>
                 <div onClick={() => { setHideDesc(false) }}>
 
 

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addSearchVideos, setSearchVideos } from '../../utils/store/slices/appSlice'
 import HorizontalVideoCard from './HorizontalVideoCard';
 import SearchPageShimmerUi from './SearchPageShimmerUi'
-
+import useSize from '../../utils/hooks/useSize'
 
 const SearchResult = () => {
     const [searchParams] = useSearchParams();
@@ -19,6 +19,8 @@ const SearchResult = () => {
     const [isAtEnd, setIsAtEnd] = useState(1);
     const doneApiList = useRef({});
     const newYoutubeVideoAPI = useRef(YOUTUBE_VIDEO_SEARCH_API);
+
+
 
     const getVideosData = async (add = false) => {
 
@@ -87,7 +89,7 @@ const SearchResult = () => {
 
     return (
         <>
-            <div className='mt-4 w-4/5 m-auto'  >
+            <div className='mt-4 md:w-4/5 w-full m-auto'  >
 
 
                 {Object.entries(videoData ? videoData : {})?.map(([key, value]) => (

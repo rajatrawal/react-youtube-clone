@@ -48,17 +48,17 @@ const WatchPage = () => {
             {showShimmer ? <WatchPageShimmerUI /> :
 
 
-                <div className='p-1 flex flex-row flex-wrap'>
-                    <div className='md:basis-4/6 sm:basis-4/6 grow h-screen p-4' >
+                <div className='p-1 flex flex-row flex-wrap  lg:flex-nowrap'>
+                    <div className='lg:basis-4/6  grow sm:p-4 p-2' >
                         <div className='youtube-video-container'>
 
-                            <iframe width="100%" src={"https://www.youtube.com/embed/" + videoId} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className='rounded-lg h-10/12' ></iframe>
+                            <iframe width="100%" src={"https://www.youtube.com/embed/" + videoId} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className='rounded-lg sm:h-10/12 ' ></iframe>
                         </div>
                         <VideoInfoSection videoData={videoData} />
                         <CommentInput commentHistory={[]} />
                         <CommentsList data={comments} />
                     </div>
-                    <div className='basis-2/6'>
+                    <div className='lg:basis-2/6 grow w-full'>
                         <LiveChat videoId={videoId} />
                         <VideoList />
                     </div>

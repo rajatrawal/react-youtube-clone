@@ -170,7 +170,7 @@ const SideBar = () => {
                   <Link to={'/watch?v=' + key} key={key}>
                     <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4 items-center' >
                       <div className='w-16'>
-                        <img src={videoHistory[key]?.snippet?.thumbnails?.default?.url} alt="" srcset="" />
+                        <img src={videoHistory[key]?.snippet?.thumbnails?.default?.url} alt="" srcSet="" />
                       </div>
                       <div className='ml-5  font-bold text-xs' >
                         {videoHistory[key]?.snippet?.localized?.title?.slice(0, 30)}

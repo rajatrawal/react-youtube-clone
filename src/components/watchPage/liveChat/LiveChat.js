@@ -14,10 +14,10 @@ const LiveChat = ({ videoId }) => {
     const [chatStatus, setChatStatus] = useState(true);
     let i = 0;
     useEffect(() => {
-        // const interval = setInterval(() => {
-        //     dispatch(addChat({ videoId: videoId, data: [{ name: generate(), message: makeid(30) }] }))
-        // }, 1500)
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            dispatch(addChat({ videoId: videoId, data: [{ name: generate(), message: makeid(30) }] }))
+        }, 1500)
+        return () => clearInterval(interval);
 
     }, [])
 

@@ -5,7 +5,7 @@ const ChatComponent = ({ name, message }) => {
         <div className='text-sm'>
             <div className='py-2 hover:bg-gray-100 flex  px-3 cursor-pointer ease-in-out'>
                 <div className='flex shrink-0 items-start'>
-                    <i className="fa-solid fa-circle-user fa-xl mr-3 mt-3"></i>
+                    <img className='rounded-full w-7 h-7 mr-2' srcSet={"https://source.unsplash.com/random/250x250?sig=" + name} alt="userimage" />
                     <span className="text-gray-500 mr-3 shrink-0">{name}</span>
 
                 </div>

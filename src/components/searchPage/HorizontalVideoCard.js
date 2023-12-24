@@ -1,16 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useSize from '../../utils/hooks/useSize'
 const HorizontalVideoCard = ({ data, i }) => {
+    const [width] = useSize();
+    const description = width < 600 ? data?.snippet?.description.slice(0, 50) : data?.snippet?.description;
+
     return (
-        <div className='w-full  p-3 grow'>
+        <div className='w-full  p-3  '>
             <Link to={'/watch?v=' + data?.id?.videoId} >
-                <div className='flex'>
+                <div className=' flex grow items-start'>
+                    <div className='basis-5/12'>
 
-                    <img src={data?.snippet?.thumbnails?.high?.url} alt={data?.snippet?.localized?.title} className='w-72 rounded-xl hover:rounded-none transition-all ease-in dealy-400 cursor-pointer ' />
-                    <div className=" ml-4 mt-2">
+                        <img src={data?.snippet?.thumbnails?.high?.url} alt={data?.snippet?.localized?.title} className='  rounded-xl hover:rounded-none transition-all ease-in dealy-400 cursor-pointer ' />
+                    </div>
+                    <div className=" ml-4  basis-7/12">
 
 
-                        <div className='text-lg font-semibold'>
+                        <div className='md:text-lg font-semibold text-base'>
                             {data?.snippet?.title}
 
                         </div>
@@ -27,7 +33,7 @@ const HorizontalVideoCard = ({ data, i }) => {
                                 </div>
                             </div>
                             <div className='mt-2 text-sm'>
-                                {data?.snippet?.description}
+                                {description}
                             </div>
                         </div >
 

@@ -43,12 +43,16 @@ const CommentInput = ({ replayStatus, isReply, setReplayStatus, commentHistory }
 
     return (
         <div>
-            {(replayStatus === true || !isReply) &&
+            {!isReply &&
+                <div className="font-bold text-xl mt-5">Comments </div>
+            }
+            {
+                (replayStatus === true || !isReply) &&
                 <>
                     <form onSubmit={handleClick}>
 
-                        <div className='my-4  flex items-center '>
-                            <i className="fa-solid fa-circle-user fa-2xl "></i>
+                        <div className='my-5  flex items-center '>
+                            <img className='rounded-full w-9 h-9' srcSet={"https://source.unsplash.com/random/250x250?sig=100"} alt="userimage" />
                             <div className='basis-11/12 mx-3'>
                                 <input type="text" className='w-full border-b-gray-500 outline-none border-b px-2 py-1 text-sm ease-in duration-300 focus:border-b-black focus:border-b-2' placeholder={`Add a ${isReply ? 'Reply' : 'Comment'}...`} onFocus={() => setCommentFocus(true)} onChange={(e) => setInputVal(e.target.value)} />
 
@@ -74,7 +78,7 @@ const CommentInput = ({ replayStatus, isReply, setReplayStatus, commentHistory }
                 </>
 
             }
-        </div>
+        </div >
     )
 }
 

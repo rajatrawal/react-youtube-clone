@@ -4,7 +4,7 @@ import CommentInput from './CommentInput';
 
 
 const Comment = function ({ data, parentCommentData, oldCommentHistory }) {
-    console.log(data);
+
     const [replayStatus, setReplayStatus] = useState(false);
     const keyId = data.commentId;
     const currentPath = '#' + parentCommentData?.keyId;
@@ -17,7 +17,7 @@ const Comment = function ({ data, parentCommentData, oldCommentHistory }) {
         <>
             <div className='my-5  flex  items-baseline ' id={keyId}>
                 <div className='relative top-1'>
-                    <i className="fa-solid fa-circle-user fa-2xl "></i>
+                    <img className='rounded-full w-7 h-7' srcSet={"https://source.unsplash.com/random/250x250?sig=" + keyId} alt="userimage" />
 
 
                 </div>
