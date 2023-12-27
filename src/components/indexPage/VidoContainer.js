@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import VideoCard from './VideoCard'
 import { YOUTUBE_VIDEO_API } from '../../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addVideos } from '../../utils/store/slices/appSlice'
+import { addVideos, updateProgress } from '../../utils/store/slices/appSlice'
 import ShimmerContainer from './ShimmerContainer'
 import { fetchVideoData } from '../helper'
-// import { BoxShadowVideoCard } from './VideoCard'
+
 const VidoContainer = () => {
-    // const [videoData, setVideoData] = useState([]);
+
 
     const videoData = useSelector((store) => store.app.videoData);
     const dispatch = useDispatch();
@@ -18,15 +18,24 @@ const VidoContainer = () => {
     const newYoutubeVideoAPI = useRef(YOUTUBE_VIDEO_API);
 
     const getVideosData = async () => {
+        dispatch(updateProgress(10));
         setShowShimmer(true);
         doneApiList.current[newYoutubeVideoAPI.current] = true;
         const json = await fetchVideoData(newYoutubeVideoAPI.current);
+        dispatch(updateProgress(40));
 
-        dispatch(addVideos(json));
 
+        dispatch(addVideos(json.items));
+
+        dispatch(updateProgress(70));
         setShowShimmer(false);
         pageToken.current = json?.nextPageToken;
         newYoutubeVideoAPI.current = YOUTUBE_VIDEO_API + (pageToken.current ? `&pageToken=${pageToken.current}` : '');
+
+        dispatch(updateProgress(100));
+        dispatch(updateProgress(0));
+
+
 
     }
 
@@ -35,6 +44,8 @@ const VidoContainer = () => {
 
             getVideosData();
         }
+
+
 
     }, [])
     const handleScroll = () => {

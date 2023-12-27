@@ -6,7 +6,7 @@ import CommentsList from './comments/CommentsList';
 // import dummyData from '../../utils/dummy';
 import LiveChat from './liveChat/LiveChat';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCurrentVideoId, addVideoInHistory } from '../../utils/store/slices/appSlice';
+import { addCurrentVideoId, addVideoInHistory, updateProgress } from '../../utils/store/slices/appSlice';
 import VideoInfoSection from './VideoInfoSection';
 import WatchPageShimmerUI from './WatchPageShimmerUI';
 import VideoList from './VideoList';
@@ -23,11 +23,12 @@ const WatchPage = () => {
     const dispatch = useDispatch();
 
     const fetchVideoData = async () => {
-
+        dispatch(updateProgress(20));
         const data = await fetch(YOUTUBE_ONE_VIDEO_API + videoId);
+        dispatch(updateProgress(60));
         const json = await data.json();
-        console.log('first')
         dispatch(addVideoInHistory(json?.items[0]));
+        dispatch(updateProgress(0));
     }
 
 

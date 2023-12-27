@@ -7,7 +7,8 @@ const appSlice = createSlice({
         videoData: {},
         currentVideoId: null,
         searchVideoData: {},
-        videoHistory: {}
+        videoHistory: {},
+        progress: 0
     },
     reducers: {
         toggleMenu: (state) => {
@@ -35,10 +36,13 @@ const appSlice = createSlice({
         },
         addVideoInHistory: (state, action) => {
             state.videoHistory[action?.payload?.id] = action.payload;
+        },
+        updateProgress: (state, action) => {
+            state.progress = action.payload
         }
 
     }
 })
 
-export const { toggleMenu, addVideos, addCurrentVideoId, addSearchVideos, setSearchVideos, addVideoInHistory } = appSlice.actions;
+export const { toggleMenu, addVideos, addCurrentVideoId, addSearchVideos, setSearchVideos, addVideoInHistory, updateProgress } = appSlice.actions;
 export default appSlice.reducer;

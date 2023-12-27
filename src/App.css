@@ -36,6 +36,9 @@
         top: 0;
         left: 0;
         width: 100%;
+        aspect-ratio: 16 / 9;
         height: 100%;
+
+
     }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { toggleMenu } from '../utils/store/slices/appSlice';
 import { addSearch } from '../utils/store/slices/searchSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
-import useSize from '../utils/hooks/useSize';
+
 
 const Head = () => {
 

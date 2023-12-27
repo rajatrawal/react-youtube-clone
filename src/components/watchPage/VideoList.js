@@ -14,7 +14,7 @@ const VideoList = () => {
         if (Object.keys(videosData).length === 0) {
             const data = await fetchVideoData(YOUTUBE_VIDEO_API);
 
-            dispatch(addVideos(data));
+            dispatch(addVideos(data.items));
         }
 
     }

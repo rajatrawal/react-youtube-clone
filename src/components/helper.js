@@ -73,5 +73,5 @@ export const generatePrime = function (userValue) {
 export const fetchVideoData = async (url) => {
   const data = await fetch(url);
   const json = await data.json();
-  return json.items;
+  return json;
 }

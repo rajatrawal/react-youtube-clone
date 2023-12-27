@@ -34,16 +34,7 @@ const commentSlice = createSlice(
     }
 )
 
-const dummy = {
-    videoId: {
-        1: {
 
-            name: 'rajat',
-            text: 'hi how are you',
-            replies: []
-        }
-    }
-}
 
 export default commentSlice.reducer;
 export const { addComment } = commentSlice.actions;

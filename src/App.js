@@ -43,17 +43,6 @@ function App() {
 
       <div >
         <RouterProvider router={appRouter} />
-        {/* 
-    head
-    body
-      sidebar
-        items
-      mainContainer
-        buttonlist
-        videoContainer
-          videoCard
-    
-    */}
       </div>
     </Provider>
   );

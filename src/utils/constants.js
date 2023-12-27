@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyD1jGJkZBOSMsXt4VF2qPS6gQqxziS3F3o"
+const GOOGLE_API_KEY = process.env.REACT_APP_API_KEY;
 
 export const LIVE_CHAT_TRESHHOLD = 200;
 

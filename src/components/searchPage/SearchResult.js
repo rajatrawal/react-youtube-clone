@@ -3,10 +3,10 @@ import { useSearchParams, } from 'react-router-dom'
 import React, { useEffect, useRef, useState } from 'react'
 import { YOUTUBE_VIDEO_SEARCH_API } from '../../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addSearchVideos, setSearchVideos } from '../../utils/store/slices/appSlice'
+import { addSearchVideos, setSearchVideos, updateProgress } from '../../utils/store/slices/appSlice'
 import HorizontalVideoCard from './HorizontalVideoCard';
 import SearchPageShimmerUi from './SearchPageShimmerUi'
-import useSize from '../../utils/hooks/useSize'
+
 
 const SearchResult = () => {
     const [searchParams] = useSearchParams();
@@ -23,11 +23,13 @@ const SearchResult = () => {
 
 
     const getVideosData = async (add = false) => {
-
+        dispatch(updateProgress(10));
         setShowShimmer(true);
         const tempVideoApi = YOUTUBE_VIDEO_SEARCH_API + (pageToken?.current ? `&pageToken=${pageToken?.current}` : '') + "&q=" + searchQuery
         const data = await fetch(newYoutubeVideoAPI.current);
+
         const json = await data.json();
+        dispatch(updateProgress(60));
         doneApiList.current[tempVideoApi] = true;
 
         if (add) {
@@ -40,9 +42,11 @@ const SearchResult = () => {
             dispatch(setSearchVideos(json?.items));
         }
         setShowShimmer(false);
-        console.log(json?.items);
+
         pageToken.current = json?.nextPageToken;
         newYoutubeVideoAPI.current = YOUTUBE_VIDEO_SEARCH_API + (pageToken?.current ? `&pageToken=${pageToken?.current}` : '') + "&q=" + searchQuery;
+
+        dispatch(updateProgress(0));
 
 
 
@@ -74,16 +78,13 @@ const SearchResult = () => {
 
     useEffect(() => {
 
-        const timeOut = setTimeout(() => {
-            if (doneApiList.current[newYoutubeVideoAPI.current] === undefined) {
-                getVideosData(true);
 
-            }
+        if (doneApiList.current[newYoutubeVideoAPI.current] === undefined) {
+            getVideosData(true);
 
-        }, 500);
-        return () => {
-            clearTimeout(timeOut);
         }
+
+
 
     }, [isAtEnd])
 

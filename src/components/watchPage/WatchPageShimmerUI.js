@@ -3,16 +3,16 @@ import React from 'react'
 const WatchPageShimmerUI = () => {
 
     return (
-        <div className='p-4 flex flex-row flex-wrap'>
-            <div className='md:basis-4/6 sm:basis-4/6 grow h-screen' >
-                <div className='youtube-video-container h-9/12 w-full shimmer bg-gray-300 rounded-lg'>
+        <div className='p-1 flex flex-row flex-wrap  lg:flex-nowrap'>
+            <div className='lg:basis-4/6   sm:p-4 p-2 grow ' >
+                <div className='youtube-video-container lg:h-9/12 w-full shimmer bg-gray-300 rounded-lg h-6/12'>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 ">
                     <div className="text font-semibold  shimmer bg-gray-300 h-7 w-11/12">
 
                     </div>
-                    <div className='flex flex-row  gap-3 items-center mt-5'>
+                    <div className='flex flex-row flex-wrap gap-3 items-center mt-5'>
                         <div className='basis-2/6 flex items-center '>
                             <div className='flex items-center'>
                                 <div className='shimmer bg-gray-300 w-9 h-9 rounded-full'></div>
@@ -65,7 +65,7 @@ const WatchPageShimmerUI = () => {
                     </div>
                 </div>
             </div>
-            <div className='basis-2/6 '>
+            <div className='lg:basis-2/6 w-full'>
                 <div className='px-4 '>
 
                     <div className='border border-gray-300 rounded-lg w-full  h-full'>
