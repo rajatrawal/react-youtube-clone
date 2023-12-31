@@ -11,7 +11,6 @@ import SearchPageShimmerUi from './SearchPageShimmerUi'
 const SearchResult = () => {
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('q');
-
     const videoData = useSelector((store) => store.app.searchVideoData);
     const dispatch = useDispatch();
     const pageToken = useRef(undefined);
@@ -25,7 +24,8 @@ const SearchResult = () => {
     const getVideosData = async (add = false) => {
         dispatch(updateProgress(10));
         setShowShimmer(true);
-        const tempVideoApi = YOUTUBE_VIDEO_SEARCH_API + (pageToken?.current ? `&pageToken=${pageToken?.current}` : '') + "&q=" + searchQuery
+        const tempVideoApi = YOUTUBE_VIDEO_SEARCH_API + (pageToken?.current ? `&pageToken=${pageToken?.current}` : '') + "&q=" + searchQuery;
+        newYoutubeVideoAPI.current = tempVideoApi;
         const data = await fetch(newYoutubeVideoAPI.current);
 
         const json = await data.json();
@@ -55,7 +55,7 @@ const SearchResult = () => {
 
 
     useEffect(() => {
-        // if (Object.keys(videoData).length === 0) {
+        
 
         getVideosData();
 

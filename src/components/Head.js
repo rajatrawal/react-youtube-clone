@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { toggleMenu } from '../utils/store/slices/appSlice';
 import { addSearch } from '../utils/store/slices/searchSlice';
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 
 
-const Head = () => {
-
+const Head = ({ menuTogglerHandel }) => {
+  const dispatch = useDispatch();
   const oldSearchData = useSelector(store => store.search.search);
 
 
@@ -15,10 +14,7 @@ const Head = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [miniSearch, setMiniSearch] = useState(false);
-  const dispatch = useDispatch();
-  function menuTogglerHandel() {
-    dispatch(toggleMenu())
-  }
+
 
   const fetchSearchSuggestions = async (query) => {
     const data = await fetch(YOUTUBE_SEARCH_API + query);

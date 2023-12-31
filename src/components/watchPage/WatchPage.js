@@ -23,23 +23,25 @@ const WatchPage = () => {
     const dispatch = useDispatch();
 
     const fetchVideoData = async () => {
+        setShowShimmer(true);
         dispatch(updateProgress(20));
         const data = await fetch(YOUTUBE_ONE_VIDEO_API + videoId);
         dispatch(updateProgress(60));
         const json = await data.json();
         dispatch(addVideoInHistory(json?.items[0]));
         dispatch(updateProgress(0));
+        setShowShimmer(false);
+
     }
 
 
     useEffect(() => {
-        setShowShimmer(true);
+
         dispatch(addCurrentVideoId(videoId));
         if (!videoData) {
             fetchVideoData();
 
         }
-        setShowShimmer(false);
 
     }, [searchParams])
 

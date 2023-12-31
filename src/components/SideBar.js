@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const SideBar = () => {
+const SideBar = ({ menuTogglerHandel }) => {
   const [showMore, setShowMore] = useState(false);
   const [showSubscribeMore, setShowSubscribeMore] = useState(false);
   const isMenuOpen = useSelector(store => store?.app?.isMenuOpen);
@@ -167,8 +167,8 @@ const SideBar = () => {
 
                 </div >
                 {Object.entries(videoHistory)?.map(([key, value]) => (
-                  <Link to={'/watch?v=' + key} key={key}>
-                    <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4 items-center' >
+                  <Link to={'/watch?v=' + key} key={key} >
+                    <li className='flex  py-2  border-0 rounded-xl  cursor-pointer hover:bg-gray-100 last:mb-2 px-4 items-center' onClick={() => { menuTogglerHandel() }}>
                       <div className='w-16'>
                         <img src={videoHistory[key]?.snippet?.thumbnails?.default?.url} alt="" srcSet="" />
                       </div>
