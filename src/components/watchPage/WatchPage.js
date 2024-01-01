@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom'
 import { YOUTUBE_ONE_VIDEO_API } from '../../utils/constants';
 import CommentInput from './comments/CommentInput';
 import CommentsList from './comments/CommentsList';
-// import dummyData from '../../utils/dummy';
 import LiveChat from './liveChat/LiveChat';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCurrentVideoId, addVideoInHistory, updateProgress } from '../../utils/store/slices/appSlice';
